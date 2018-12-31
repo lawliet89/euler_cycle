@@ -59,6 +59,7 @@ def hierholzer(graph):
         if set(c) == set(edges):
             # We are done
             break
+        # Otherwise, TODO
 
     return c
 
