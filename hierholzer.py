@@ -84,10 +84,10 @@ def hierholzer(graph):
     vertices = get_vertices(graph)
 
     # Let's start from the first Vertex
-    vi_previous = vertices[0]
+    vi = vertices[0]
     # Try to build a circuit
     # Step 1
-    ci = build_circuit(vi_previous, edges)  # Ordered
+    ci = build_circuit(vi, edges)  # Ordered
     while True:
         set_ci = set(ci)
 
@@ -122,7 +122,7 @@ def hierholzer(graph):
         assert(len(remaining_edges) > 0)
         ci_star = build_circuit(vi, remaining_edges)
         # Step 3
-        # Build a new ci by going form vi_previous to vi using the circuit in ci
+        # Build a new ci by going from the first node in ci to vi using the circuit in ci
         # Then going from vi to vi again using ci_star
         # And then continuing from vi to the end of ci
         next_ci = ci[0:vi_index + 1] + ci_star + ci[vi_index + 1:]
